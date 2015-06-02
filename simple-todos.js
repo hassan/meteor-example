@@ -26,3 +26,19 @@ if (Meteor.isClient) {
       }
   });
 }
+
+if (Meteor.isServer) {
+  Tasks.allow({
+    insert: function(task) {
+      return true;
+    },
+    remove: function(task) {
+      return true;
+    }
+  });
+  Tasks.deny({
+    insert: function (task) {
+      return task.createdAt === "WAT";
+    }
+  });
+}
