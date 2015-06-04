@@ -38,7 +38,7 @@ if (Meteor.isServer) {
   });
   Tasks.deny({
     insert: function (task) {
-      return task.createdAt === "WAT";
+      return task.createdAt == undefined;
     }
   });
 }
